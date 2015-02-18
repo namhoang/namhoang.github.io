@@ -127,7 +127,21 @@ $(document).ready(function(){
     });
 
    
+    $('.portfolio-modal').click(function(e){
+    	console.log($(this).attr('data-target'));
+    	history.pushState({}, "", this.href);
+    });
+});
 
+$(window).on('popstate', function(event){
+	var currentHash = event.currentTarget.location.hash;
+	if(currentHash == ''){
+		location.reload(true);
+	}else if(currentHash.substring(0, 3) == '#m_'){
+		var hashSplit = currentHash.split('_');
+		var modalTarget = hashSplit[1];
+		$('#' + modalTarget).modal('show');
+	}
 });
 
 
