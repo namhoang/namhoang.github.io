@@ -2,8 +2,9 @@
 
 $(window).load(function() {
 
-    $('.nav_slide_button, .flip-nav.open .top-nav li').click(function() {
+    $('.nav_slide_button, .flip-nav.open .top-nav li').click(function(e) {
         $('.flip-nav').toggleClass('open');
+        e.preventDefault();
     });
     $('#slider-c').flexslider({
         animation: 'fade',
